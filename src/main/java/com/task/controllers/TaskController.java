@@ -35,18 +35,19 @@ public class TaskController {
 
     @GetMapping("form")
     public String taskForm(Task task, Model model) {
-        model.addAttribute("users", this.projectRepository.findAll());
+        model.addAttribute("projects", this.projectRepository.findAll());
         return "formTask";
     }
 
     @PostMapping("add")
-    public String addTask(@Valid Task task, BindingResult result, Model model, @RequestParam(name="project_nome") String project_id) {
+    public String addTask(@Valid Task task, BindingResult result, Model model, @RequestParam(name = "project_nome") String project_id) {
 
         if (result.hasErrors()) {
             return "formTask";
         }
-
-        Optional<Project> user = this.projectRepository.findById(Long.parseLong(project_id));
+//        Optional<Project> project = this.projectRepository.findById(Long.parseLong(project_id));
+        Project project = this.projectRepository.getReferenceById(Long.parseLong(project_id));
+        task.setProject(project);
         this.taskRepository.save(task);
 
         return "redirect:list";

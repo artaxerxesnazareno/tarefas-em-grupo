@@ -23,10 +23,10 @@
                        placeholder="Insira o nome da categoria">
             </div>
             <div class="form-group">
-                <label for="user">User</label>
-                <select id="user" class="custom-select mr-sm-2" name="user">
-                    <option th:each="user : ${users}" th:value="${user.id}"
-                            th:text="${user.username}"></option>
+                <label for="project">User</label>
+                <select id="project" class="custom-select mr-sm-2" name="project_nome">
+                    <option th:each="project : ${projects}" th:value="${project.id}"
+                            th:text="${project.name}"></option>
                 </select>
             </div>
             <div class="form-group">
