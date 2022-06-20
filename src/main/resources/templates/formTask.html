@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <title>Criar Task</title>
+</head>
+<body>
+<div class="container">
+<div class="card">
+    <h4 class="container">Cadastrar Categoria</h4>
+    <div class="card-body">
+        <form action="#" th:action="@{/tasks/add}" th:object="${task}" method="post">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" id="name" th:field="*{name}"
+                       placeholder="Insira o nome da categoria">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descricao</label>
+                <input type="text" class="form-control" id="descricao" th:field="*{descricao}"
+                       placeholder="Insira o nome da categoria">
+            </div>
+            <div class="form-group">
+                <label for="user">User</label>
+                <select id="user" class="custom-select mr-sm-2" name="user">
+                    <option th:each="user : ${users}" th:value="${user.id}"
+                            th:text="${user.username}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-block" value="Salvar">
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>
