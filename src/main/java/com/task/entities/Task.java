@@ -22,9 +22,8 @@ public class Task {
     @ManyToOne
     private Project project;
 
-
-    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
-    private Set<UserTask> userTasks = new HashSet<>();
+    @ManyToOne
+    private User user;
 
     public long getId() {
         return id;
@@ -58,11 +57,11 @@ public class Task {
         this.project = project;
     }
 
-    public Set<UserTask> getUserTasks() {
-        return userTasks;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserTasks(Set<UserTask> userTasks) {
-        this.userTasks = userTasks;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

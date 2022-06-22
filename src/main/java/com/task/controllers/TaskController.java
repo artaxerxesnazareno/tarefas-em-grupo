@@ -28,7 +28,7 @@ public class TaskController {
     private ProjectRepository projectRepository;
 
     @GetMapping("list")
-    public String getTaskList(Model model) {
+    public String taskList(Model model) {
         model.addAttribute("tasks", this.taskRepository.findAll());
         return "tasksList";
     }

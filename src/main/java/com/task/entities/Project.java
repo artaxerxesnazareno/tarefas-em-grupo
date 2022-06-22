@@ -15,7 +15,7 @@ public class Project {
 
     @OneToOne
     private User user;
-
+ 
     public Project() {
     }
 

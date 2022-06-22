@@ -20,8 +20,6 @@ public class User {
     @Column(name = "password")
   private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<UserTask> userTasks = new HashSet<>();
 
     public User() {
     }
@@ -64,11 +62,5 @@ public class User {
         this.password = password;
     }
 
-    public Set<UserTask> getUserTasks() {
-        return userTasks;
-    }
 
-    public void setUserTasks(Set<UserTask> userTasks) {
-        this.userTasks = userTasks;
-    }
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Projetos</title>
+</head>
+<body>
+<div class="container">
+    <h1>Seja bem Vindo</h1>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${tasks}">
+            <th scope="row" th:text="${task.id}"></th>
+            <td th:text="${task.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
