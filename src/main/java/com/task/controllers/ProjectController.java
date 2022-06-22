@@ -46,8 +46,9 @@ public class ProjectController {
         return "redirect:list";
     }
 
+    @GetMapping("list")
     private String projectList(Model model) {
-        model.addAttribute("project",this.projectRepository.findAll());
+        model.addAttribute("projects", this.projectRepository.findAll());
 
         return "projectList";
     }
